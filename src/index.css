@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Design Philosophy: Cinematic Architectural Storytelling
+  - White canvas with Prussian Blue (#0A3658) accents
+  - Tajawal for Arabic, Space Grotesk for English
+  - Large imagery, generous whitespace, cinematic scroll
+  - Brand colors: Prussian Blue #0A3658, Mid Blue #1F5B85, Light Blue #347FB2
+*/
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.15 0.01 240);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.01 240);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.01 240);
+  --primary: oklch(0.30 0.08 240);
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.96 0.005 240);
+  --secondary-foreground: oklch(0.25 0.06 240);
+  --muted: oklch(0.96 0.005 240);
+  --muted-foreground: oklch(0.50 0.03 240);
+  --accent: oklch(0.96 0.005 240);
+  --accent-foreground: oklch(0.15 0.01 240);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.92 0.005 240);
+  --input: oklch(0.92 0.005 240);
+  --ring: oklch(0.40 0.08 240);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.15 0.01 240);
+  --sidebar-accent: oklch(0.96 0.005 240);
+  --sidebar-accent-foreground: oklch(0.15 0.01 240);
+  --sidebar-border: oklch(0.92 0.005 240);
+  --sidebar-ring: oklch(0.40 0.08 240);
+  --chart-1: oklch(0.30 0.08 240);
+  --chart-2: oklch(0.35 0.08 240);
+  --chart-3: oklch(0.40 0.08 240);
+  --chart-4: oklch(0.50 0.08 240);
+  --chart-5: oklch(0.60 0.08 240);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+    outline-color: color-mix(in oklch, var(--ring) 50%, transparent);
+  }
+  html {
+    direction: rtl;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Tajawal', 'Space Grotesk', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    direction: rtl;
+    text-align: right;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    cursor: pointer;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Tajawal', 'Space Grotesk', sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    direction: rtl;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  /* RTL-specific flex utilities */
+  .flex-row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+  .ml-auto {
+    margin-left: auto;
+  }
+
+  .mr-auto {
+    margin-right: auto;
+  }
+
+  /* RTL margin adjustments */
+  .ms-4 {
+    margin-inline-start: 1rem;
+  }
+
+  .me-4 {
+    margin-inline-end: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f2f4f8;
+}
+::-webkit-scrollbar-thumb {
+  background: #0A3658;
+  border-radius: 3px;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(10, 54, 88, 0.15);
+  color: #0A3658;
+}
