@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, MapPin, Maximize, Calendar, Clock, User, CheckCircle2, ChevronLeft, ChevronRight, X, Menu, Phone } from "lucide-react";
-import { getProjectById, type ProjectDetail as ProjectDetailType } from "@/lib/projects";
+import { getProjectById } from "@/lib/projects";
 import Footer from "@/components/sections/Footer";
 
 function ProjectNavbar() {

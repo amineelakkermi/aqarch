@@ -5,7 +5,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
-import { Phone, Mail, MapPin, Send } from "lucide-react";
+import { Phone, Mail, Send } from "lucide-react";
 import { toast } from "sonner";
 
 export default function ContactSection() {
