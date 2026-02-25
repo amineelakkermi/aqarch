@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
 import { Phone, Mail, Send } from "lucide-react";
 import { toast } from "sonner";
+import { sendEmail } from "@/lib/email";
 
 export default function ContactSection() {
   const { ref, inView } = useInView(0.05);
@@ -17,18 +18,46 @@ export default function ContactSection() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.");
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    
+    // Validation simple
+    if (!formData.name || !formData.email || !formData.message) {
+      toast.error("يرجى ملء جميع الحقول المطلوبة");
+      return;
+    }
+    
+    // Afficher le chargement
+    toast.loading("جاري إرسال الرسالة...");
+    
+    try {
+      // Utiliser Resend pour l'envoi direct
+      const result = await sendEmail({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+        subject: `استفسار جديد من ${formData.name} - AQ Architects`
+      });
+
+      if (result.success) {
+        toast.success("تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.");
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      } else {
+        toast.error(result.error || "فشل إرسال الرسالة");
+      }
+    } catch (error) {
+      toast.error("حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.");
+      console.error('Form submission error:', error);
+    }
   };
 
   const contactInfo = [
     {
       icon: Mail,
       label: "البريد الإلكتروني",
-      value: "hello@aqarch.co",
-      href: "mailto:hello@aqarch.co",
+      value: "amineelakkermi37@gmail.com",
+      href: "mailto:amineelakkermi37@gmail.com",
       dir: "ltr" as const,
     },
   ];

@@ -36,9 +36,9 @@ export default function Footer() {
             <h4 className="text-sm font-bold mb-6 text-white/80">تواصل معنا</h4>
             <ul className="space-y-4">
               <li>
-                <a href="mailto:hello@aqarch.co" className="flex items-center gap-3 text-white/50 text-sm hover:text-white transition-colors">
+                <a href="mailto:Info@aqarch.com" className="flex items-center gap-3 text-white/50 text-sm hover:text-white transition-colors">
                   <Mail className="w-4 h-4 flex-shrink-0" />
-                  <span dir="ltr">hello@aqarch.co</span>
+                  <span dir="ltr">Info@aqarch.com</span>
                 </a>
               </li>
               <li>
