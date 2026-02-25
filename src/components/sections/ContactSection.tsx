@@ -56,8 +56,8 @@ export default function ContactSection() {
     {
       icon: Mail,
       label: "البريد الإلكتروني",
-      value: "amineelakkermi37@gmail.com",
-      href: "mailto:amineelakkermi37@gmail.com",
+      value: "Info@aqarch.com",
+      href: "mailto:Info@aqarch.com",
       dir: "ltr" as const,
     },
   ];
