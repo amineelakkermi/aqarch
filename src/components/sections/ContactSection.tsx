@@ -18,7 +18,7 @@ export default function ContactSection() {
     message: "",
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
   e.preventDefault();
 
   if (!formData.name || !formData.email || !formData.message) {
@@ -29,7 +29,7 @@ export default function ContactSection() {
   toast.loading("جاري إرسال الرسالة...");
 
   try {
-    const res = await fetch("http://localhost:5000/send-email", {
+    const res = await fetch("/api/send-email", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
