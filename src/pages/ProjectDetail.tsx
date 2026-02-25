@@ -257,7 +257,7 @@ export default function ProjectDetail() {
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-[1px] bg-white/40" />
                 <span className="text-white/70 text-xs tracking-[0.2em] uppercase" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                  COMMERCIAL
+                  {project.categoryEn}
                 </span>
               </div>
               <h1 className="text-4xl lg:text-6xl font-bold text-white mb-3 leading-tight">
