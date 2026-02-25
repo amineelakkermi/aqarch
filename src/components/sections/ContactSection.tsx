@@ -19,38 +19,41 @@ export default function ContactSection() {
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Validation simple
-    if (!formData.name || !formData.email || !formData.message) {
-      toast.error("يرجى ملء جميع الحقول المطلوبة");
-      return;
-    }
-    
-    // Afficher le chargement
-    toast.loading("جاري إرسال الرسالة...");
-    
-    try {
-      // Utiliser Resend pour l'envoi direct
-      const result = await sendEmail({
+  e.preventDefault();
+
+  if (!formData.name || !formData.email || !formData.message) {
+    toast.error("يرجى ملء جميع الحقول المطلوبة");
+    return;
+  }
+
+  toast.loading("جاري إرسال الرسالة...");
+
+  try {
+    const res = await fetch("http://localhost:5000/send-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
         message: formData.message,
-        subject: `استفسار جديد من ${formData.name} - AQ Architects`
-      });
+        subject: `استفسار جديد من ${formData.name} - AQ Architects`,
+      }),
+    });
 
-      if (result.success) {
-        toast.success("تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.");
-        setFormData({ name: "", email: "", phone: "", message: "" });
-      } else {
-        toast.error(result.error || "فشل إرسال الرسالة");
-      }
-    } catch (error) {
-      toast.error("حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.");
-      console.error('Form submission error:', error);
+    const result = await res.json();
+
+    if (result.success) {
+      toast.success("تم إرسال رسالتك بنجاح!");
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } else {
+      toast.error(result.error || "فشل إرسال الرسالة");
     }
-  };
+  } catch (err) {
+    console.error(err);
+    toast.error("حدث خطأ أثناء الإرسال. حاول لاحقًا.");
+  }
+};
 
   const contactInfo = [
     {
