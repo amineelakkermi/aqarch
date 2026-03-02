@@ -7,8 +7,8 @@ import { useInView } from "@/hooks/useInView";
 import { Award, Users, Building2, Clock, CheckCircle2 } from "lucide-react";
 
 const stats = [
-  { icon: Building2, number: "180+", label: "مشروع منجز" },
-  { icon: Users, number: "250+", label: "عميل سعيد" },
+  { icon: Building2, number: "180+", label: "مشاريع التنفيذ" },
+  { icon: Users, number: "250+", label: "مشاريع التصميم" },
   { icon: Clock, number: "15+", label: "سنوات خبرة" },
   { icon: Award, number: "100%", label: "التزام بالجودة" },
 ];
