@@ -87,14 +87,14 @@ export default function AboutSection() {
           transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
         >
           <h3 className="text-xl font-bold text-[#0A3658] mb-10">قيمنا الأساسية</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {values.map((v, i) => (
               <motion.div
                 key={v.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.6 + i * 0.1, ease: "easeOut" }}
-                className="group p-6 border border-[#DDE1E6] hover:border-[#0A3658]/30 transition-all duration-300 hover:shadow-sm"
+                className="group p-4 sm:p-6 border border-[#DDE1E6] hover:border-[#0A3658]/30 transition-all duration-300 hover:shadow-sm"
               >
                 <v.icon className="w-8 h-8 text-[#1F5B85] mb-4 group-hover:text-[#0A3658] transition-colors" />
                 <h4 className="text-base font-bold text-[#0A3658] mb-2">{v.title}</h4>
