@@ -79,7 +79,7 @@ export default function Footer() {
                   className="flex items-center gap-3 text-white/50 text-sm hover:text-white transition-colors"
                 >
                   <Instagram className="w-4 h-4 flex-shrink-0" />
-                  <span>aqarch.co</span>
+                  <span>@aqarch.co</span>
                 </a>
               </li>
             </ul>
